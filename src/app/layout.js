@@ -13,8 +13,6 @@ export default function Layout({ children }) {
             <div className=" py-6 lg:py-8">
               <div className=" md:justify-between">
                 <div className="mb-6 md:mb-0">
-                  <Link href="/" aria-label="Hygraph Next.js Blog Starter">
-                  </Link>
                 </div>
                 <div className="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
                   <div >
