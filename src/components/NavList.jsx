@@ -3,7 +3,8 @@ import Link from 'next/link'
 import { SingleNav } from '@/queries/navigations'
 async function getNav(navId) {
   try {
-    const endpoint = process.env.HYGRAPH_ENDPOINT
+    const endpoint =
+      'https://api-us-east-1-shared-usea1-02.hygraph.com/v2/clu5i3sa2000008jw566rd0v6/master'
     const graphQLClient = new GraphQLClient(endpoint, {
       headers: {
         'content-type': 'application/json'
