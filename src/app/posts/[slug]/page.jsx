@@ -6,8 +6,7 @@ import { RichText } from '@graphcms/rich-text-react-renderer'
 import { cookies, draftMode } from 'next/headers'
 
 async function getPosts() {
-  const endpoint =
-    'https://api-us-east-1-shared-usea1-02.hygraph.com/v2/clu5i3sa2000008jw566rd0v6/master'
+  const endpoint = process.env.NEXT_PUBLIC_HYGRAPH_ENDPOINT
   const allPosts = await fetch(endpoint, {
     method: 'POST',
     headers: {

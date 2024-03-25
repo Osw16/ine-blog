@@ -3,8 +3,7 @@ import { AllPosts } from '../queries/posts'
 import Link from 'next/link'
 
 async function getPosts() {
-  const endpoint =
-    'https://api-us-east-1-shared-usea1-02.hygraph.com/v2/clu5i3sa2000008jw566rd0v6/master'
+  const endpoint = process.env.NEXT_PUBLIC_HYGRAPH_ENDPOINT
   const graphQLClient = new GraphQLClient(endpoint, {
     headers: {
       'content-type': 'application/json'
