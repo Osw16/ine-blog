@@ -1,20 +1,17 @@
+import { GraphQLClient } from 'graphql-request'
 import { SinglePage } from '@/queries/pages'
 import { RichText } from '@graphcms/rich-text-react-renderer'
 import { notFound } from 'next/navigation'
 
 async function getPage(slug) {
-  const { page } = await fetch(process.env.HYGRAPH_ENDPOINT, {
-    method: 'POST',
+  const endpoint = process.env.NEXT_PUBLIC_HYGRAPH_ENDPOINT
+  const graphQLClient = new GraphQLClient(endpoint, {
     headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      query: SinglePage,
-      variables: { slug: slug }
-    })
+      'content-type': 'application/json'
+    }
   })
-    .then((res) => res.json())
-    .then((res) => res.data)
+
+  const data = await graphQLClient.request(SinglePage)
   return page
 }
 

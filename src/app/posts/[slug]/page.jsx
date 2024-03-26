@@ -1,41 +1,36 @@
+import { GraphQLClient } from 'graphql-request'
 import { AllPosts, SinglePost } from '@/queries/posts'
 import Link from 'next/link'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import { RichText } from '@graphcms/rich-text-react-renderer'
-import { cookies, draftMode } from 'next/headers'
+import { cookies } from 'next/headers'
 
 async function getPosts() {
   const endpoint = process.env.NEXT_PUBLIC_HYGRAPH_ENDPOINT
-  const allPosts = await fetch(endpoint, {
-    method: 'POST',
+  const graphQLClient = new GraphQLClient(endpoint, {
     headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      query: AllPosts
-    })
-  }).then((res) => res.json())
+      'content-type': 'application/json'
+    }
+  })
 
-  return allPosts.data.posts
+  const data = await graphQLClient.request(AllPosts)
+  return data.posts
 }
 
 async function getData(slug) {
-  const cookieStore = cookies()
-  const apiUrl = cookieStore.get('apiUrl')?.value
-  const { post } = await fetch(apiUrl ? apiUrl : process.env.HYGRAPH_ENDPOINT, {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify({
-      query: SinglePost,
-      variables: { slug: slug }
+  try {
+    const apiUrl =
+      cookies().get('apiUrl')?.value || process.env.NEXT_PUBLIC_HYGRAPH_ENDPOINT
+    const graphQLClient = new GraphQLClient(apiUrl, {
+      headers: { 'Content-Type': 'application/json' }
     })
-  })
-    .then((res) => res.json())
-    .then((res) => res.data)
-  return post
+    const data = await graphQLClient.request(SinglePost, { slug })
+    return data.post
+  } catch (error) {
+    console.error('GraphQL Error:', error.response?.errors || error.message)
+    throw new Error('GraphQL Request Failed')
+  }
 }
 
 export async function generateMetadata({ params }) {
@@ -65,12 +60,10 @@ export default async function Post({ params }) {
   return (
     <article>
       <header className="pt-6 lg:pb-10">
-        <div className="space-y-1">
-          <div>
-            <h1 className="text-3xl leading-9 font-extrabold text-gray-900 tracking-tight sm:text-4xl sm:leading-10 md:text-5xl md:leading-14">
-              {post.title}
-            </h1>
-          </div>
+        <div className=" space-y-1">
+          <h1 className="text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl md:text-5xl ">
+            {post.title}
+          </h1>
         </div>
       </header>
       <div

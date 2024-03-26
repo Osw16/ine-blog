@@ -5,11 +5,10 @@ import './globals.css'
 export default function Layout({ children }) {
   return (
     <html lang="en">
-      <body>
-
-        <div className="px-6 max-w-3xl mx-auto">
+      <body className="px-6 max-w-3xl mx-auto bg-gradient-to-b from-orange-300 to-orange-400">
+        <div className="px-6 max-w-3xl mx-auto my-8 rounded-lg border shadow-2xl bg-orange-100 backdrop-filter backdrop-blur-lg bg-opacity-30">
           <main>{children}</main>
-          <footer className="bg-white mt-5">
+          <footer className="mt-5">
             <div className=" py-6 lg:py-8">
               <div className=" md:justify-between">
                 <div className="mb-6 md:mb-0">
