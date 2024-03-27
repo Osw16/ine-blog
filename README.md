@@ -2,9 +2,10 @@
 
 Welcome to the repository for the INE Blog, a dynamic blogging platform built with Next.js and powered by Hygraph as our headless CMS for backend management. Our goal is to create an engaging, responsive, and visually appealing platform for users to enjoy a seamless reading and navigation experience.
 
-#📱Check out the live version here: [https://blog-ine.vercel.app/](https://blog-ine.vercel.app/).
+**📱Check out the live version here: [https://blog-ine.vercel.app/](https://blog-ine.vercel.app/)**
 
 ## Key Features and Implementations
+I introduced schemas and models, such as an author schema to showcase their roles in the posts, and a model for incorporating social media links in the footer, aiming to foster engagement and provide a more personalized user experience.
 
 - **Content Model**: Leveraging Hygraph, we've designed a comprehensive content model that supports blog posts with titles, rich text content, publication dates, and optional cover images. This structure is key to delivering a rich user experience.
 
