@@ -2,6 +2,8 @@
 
 Welcome to the repository for the INE Blog, a dynamic blogging platform built with Next.js and powered by Hygraph as our headless CMS for backend management. Our goal is to create an engaging, responsive, and visually appealing platform for users to enjoy a seamless reading and navigation experience.
 
+#📱Check out the live version here: [https://blog-ine.vercel.app/](https://blog-ine.vercel.app/).
+
 ## Key Features and Implementations
 
 - **Content Model**: Leveraging Hygraph, we've designed a comprehensive content model that supports blog posts with titles, rich text content, publication dates, and optional cover images. This structure is key to delivering a rich user experience.
@@ -26,8 +28,7 @@ To get started with this project, you'll need to set up your Hygraph project usi
    Ensure you've created a new Hygraph project. Then, navigate to your project's directory and copy the `.env.sample` file:
 
     ```shell
-    cd hygraph-blog
-    cp .env.sample .env.local
+    cd ine-blog
     ```
 
     In your `.env` file, set the `NEXT_PUBLIC_HYGRAPH_ENDPOINT` variable to the following value:
