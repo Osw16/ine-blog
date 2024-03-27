@@ -60,8 +60,8 @@ export default async function Post({ params }) {
   return (
     <article>
       <header className="pt-6 lg:pb-10">
-        <div className=" space-y-1">
-          <h1 className="text-3xl font-extrabold text-gray-900 tracking-tight sm:text-4xl md:text-5xl ">
+        <div className="">
+          <h1 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
             {post.title}
           </h1>
         </div>

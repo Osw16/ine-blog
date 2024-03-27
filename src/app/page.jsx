@@ -19,7 +19,7 @@ export default async function Home({}) {
   return (
     <div className="divide-y divide-gray-200">
       <div className="font-poppins pt-6 pb-8 space-y-2 md:space-y-5">
-        <h1 className="text-3xl leading-9 font-poppins font-extrabold text-gray-900 tracking-tight sm:text-4xl sm:leading-10 md:text-6xl md:leading-14 ">
+        <h1 className="text-3xl leading-9 font-poppins font-extrabold text-gray-900 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14 ">
           Dog Trainig Hub
         </h1>
         <p className="text-lg leading-7 text-gray-500">
@@ -34,7 +34,7 @@ export default async function Home({}) {
               <article className="space-y-2 xl:grid-cols-4 xl:space-y-0 xl:items-baseline">
                 <div className="space-y-5 xl:col-span-3">
                   <div className="space-y-6">
-                    <h2 className="text-2xl leading-8 font-bold tracking-tight">
+                    <h2 className="text-2xl leading-8 font-bold">
                       <Link
                         href={`/posts/${post.slug}`}
                         className="text-gray-900"
