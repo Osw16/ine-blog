@@ -1,67 +1,52 @@
 # INE Blog
 
-This repository contains the code for a dynamic blogging platform developed with Next.js, utilizing Hygraph as the headless CMS for backend management.
+Welcome to the repository for the INE Blog, a dynamic blogging platform built with Next.js and powered by Hygraph as our headless CMS for backend management. Our goal is to create an engaging, responsive, and visually appealing platform for users to enjoy a seamless reading and navigation experience.
 
 ## Key Features and Implementations
 
-- **Content Model**: The platform uses Hygraph to define a versatile content model. This model supports essential features for blog posts, including titles, rich text content, publication dates, and optional cover images for each post.
+- **Content Model**: Leveraging Hygraph, we've designed a comprehensive content model that supports blog posts with titles, rich text content, publication dates, and optional cover images. This structure is key to delivering a rich user experience.
 
-- **Data Fetching**: Data is fetched efficiently from Hygraph using the `graphql-request` library, which facilitates simple yet powerful GraphQL queries. This ensures that the platform always displays the most current content.
+- **Data Fetching**: We utilize the `graphql-request` library for straightforward yet powerful GraphQL queries to Hygraph, ensuring that our content is always current and dynamically fetched.
 
-- **Dynamic Page Generation**: Thanks to Next.js's dynamic routing capabilities, the platform generates pages for individual blog posts dynamically. This approach allows each post to have a unique URL based on its ID, facilitating direct access and sharing.
+- **Dynamic Page Generation**: With Next.js's dynamic routing, our platform efficiently generates individual pages for each blog post. This feature allows each post to have a unique URL, facilitating easier access and sharing.
 
-- **Styling and Layout**: The application employs Tailwind CSS to ensure that the site remains responsive and visually appealing across various devices. Tailwind's utility-first approach aids in creating a cohesive look and feel while allowing for rapid UI development.
+- **Styling and Layout**: Tailwind CSS is our choice for styling, ensuring that the site is not only responsive but also aesthetically pleasing across different devices. Tailwind's utility-first approach helps us maintain a cohesive look and feel while enabling rapid development.
 
-## Advanced Features
-
-In addition to the core functionalities, this project explores advanced features to enhance user engagement and content discoverability:
-
-- A search functionality that allows users to filter posts by title, improving the user experience by making it easier to find relevant content.
-- Pagination or infinite scrolling on the homepage to manage content presentation and ensure that users can easily access more articles as they browse.
-
-## Project Structure
-
-The repository is organized into modular components, facilitating easy navigation and scalability of the project. The structure includes:
-
-- `components/`: Reusable UI components.
-- `pages/`: Page components used by Next.js for routing.
-- `styles/`: Tailwind CSS and custom styles for the project.
-- `utilities/`: Helper functions and utilities for data fetching and other operations.
-
-This structured approach not only makes the development process more efficient but also simplifies maintenance and future enhancements.
-
----
-
-We hope this README provides a clear overview of the project. For any questions or contributions, please feel free to open an issue or submit a pull request.
+## Advanced Features In Development
+Currently, I expect to roll this out in about a week, making it much simpler to locate specific content.
+- **Search Functionality** (In Development): A feature that will allow users to easily search and filter posts by title is currently under development. This will greatly simplify finding specific content.
 
 
-2. **Provide your Hygraph project keys**
+## Getting Started
 
-> In order to use this starter, you'll need to have created a new Hygraph project using our `Blog Template`.
+To get started with this project, you'll need to set up your Hygraph project using our `Blog Template`.
 
-Navigate into your new site’s directory and copy the `.env.sample` file.
+1. **Hygraph Project Setup**:
 
-```shell
-cd hygraph-blog
-cp .env.sample .env.local
-```
+   Ensure you've created a new Hygraph project. Then, navigate to your project's directory and copy the `.env.sample` file:
 
-Inside of your newly created `.env` file, provide values for each variable. These variables can be found in the [project settings UI](https://hygraph.com/docs/guides/overview/api-access).
+    ```shell
+    cd hygraph-blog
+    cp .env.sample .env.local
+    ```
 
-```env
-HYGRAPH_ENDPOINT=""
-HYGRAPH_TOKEN=""
-```
+    In your `.env` file, set the `NEXT_PUBLIC_HYGRAPH_ENDPOINT` variable to the following value:
 
-3. **Run the project locally.**
+    ```env
+    NEXT_PUBLIC_HYGRAPH_ENDPOINT=https://api-us-east-1-shared-usea1-02.hygraph.com/v2/clu5i3sa2000008jw566rd0v6/master
+    ```
 
-Install the dependencies and start the Next.js dev server:
+2. **Run the Project Locally**:
 
-```shell
-npm install
-npm run dev
-```
+   Install the dependencies and start the Next.js development server:
 
-## Features
-* App Router
-* Tailwind CSS
+    ```shell
+    npm install
+    npm run dev
+    ```
+
+## Features Overview
+
+- **App Router**: Efficiently manages page routing within the application.
+- **Tailwind CSS**: Provides utility-first CSS for rapid UI development and ensures responsiveness and aesthetic appeal.
+
