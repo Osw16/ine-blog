@@ -67,16 +67,28 @@ export default async function Post({ params }) {
         </div>
       </header>
       <div
-        className="divide-y lg:divide-y-0 divide-gray-200 lg:grid lg:grid-cols-[200px_1fr] gap-x-6 pb-16 lg:pb-20"
+        className="divide-y lg:divide-y-0 divide-gray-200  gap-x-6 pb-16 lg:pb-20"
         style={{ gridTemplateRows: 'auto 1fr' }}
       >
-        <dl className="pt-6 pb-10 lg:pt-0 lg:border-b lg:border-gray-200">
+        <dl className="flex flex-row justify-end pt-6 pb-2 lg:pt-0 lg:border-b lg:border-gray-200">
           {post.author && (
             <>
-              <dt className="mb-2 text-sm font-medium leading-5">Written by</dt>
+              <dt className="mb-2 text-sm font-medium leading-5">By&nbsp;</dt>
               <dd>
                 <ul className="space-x-8 sm:space-x-12 lg:space-x-0 lg:space-y-8">
                   <li key={post.author?.remoteId} className="flex space-x-2">
+                    <dl className="flex text-sm font-medium leading-5">
+                      <dd className="text-gray-900">
+                        {post.author?.name}&nbsp;
+                      </dd>
+                      {post.author?.title && (
+                        <>
+                          <dd className="text-gray-400">
+                            ({post.author?.title})
+                          </dd>
+                        </>
+                      )}
+                    </dl>
                     {post.author?.picture && (
                       <Image
                         className="w-10 h-10 rounded-full"
@@ -86,27 +98,18 @@ export default async function Post({ params }) {
                         alt={post.author?.name}
                       />
                     )}
-                    <dl className="flex-1 text-sm font-medium leading-5">
-                      <dt className="sr-only">Name</dt>
-                      <dd className="text-gray-900">{post.author?.name}</dd>
-                      {post.author?.title && (
-                        <>
-                          <dt className="sr-only">Title</dt>
-                          <dd className="text-gray-500">
-                            {post.author?.title}
-                          </dd>
-                        </>
-                      )}
-                    </dl>
                   </li>
                 </ul>
               </dd>
             </>
           )}
-          <div className="mt-8">
-            <dt className="text-sm font-medium leading-5">Published on</dt>
-            <dd className="text-base leading-6 font-medium text-gray-500">
+          <div className="">
+            <dt className="text-sm font-medium leading-5">
+              &nbsp;Published on
+            </dt>
+            <dd className="text-base leading-6 font-medium text-gray-400">
               <time dateTime={post.date}>
+                &nbsp;
                 {new Date(post.date).toLocaleDateString('en-us', {
                   year: 'numeric',
                   month: 'short',
@@ -116,7 +119,7 @@ export default async function Post({ params }) {
             </dd>
           </div>
         </dl>
-        <div className="prose lg:pb-0 lg:row-span-2">
+        <div className="text-justify prose pt-10 lg:pb-0 lg:row-span-2">
           <RichText content={post.content.raw} />
         </div>
         <footer className="text-sm font-medium leading-5 divide-y divide-gray-200 lg:col-start-1 lg:row-start-2">
