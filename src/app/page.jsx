@@ -43,7 +43,7 @@ export default async function Home({}) {
                       </Link>
                     </h2>
                     {post.excerpt && (
-                      <div className="prose max-w-none text-black-300">
+                      <div className="text-justify max-w-none text-gray-700">
                         {post.excerpt}
                       </div>
                     )}

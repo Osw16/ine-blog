@@ -101,7 +101,7 @@ export default async function Post({ params }) {
             </dd>
           </div>
         </dl>
-        <div className="font-inclusive text-xl grid justify-items-center space-y-4 pt-10 lg:pb-0 lg:row-span-2 text-gray-900  indent-6 leading-relaxed text-justify text-base">
+        <div className="font-inclusive text-xl grid justify-items-center space-y-4 pt-10 lg:pb-0 lg:row-span-2 text-gray-900  indent-6 leading-relaxed md:text-justify">
           <RichText content={post.content.raw} />
           <Image
             className="mt-10 h-63 w-96 rounded-md"
