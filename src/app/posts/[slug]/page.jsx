@@ -33,23 +33,23 @@ async function getData(slug) {
   }
 }
 
-export async function generateMetadata({ params }) {
-  const post = await getData(params.slug)
-  if (!post) return notFound()
-  return {
-    title: post.title,
-    description: post.description || post.seo?.description,
-    openGraph: {
-      images: [
-        {
-          url: post.coverImage?.url,
-          width: post.coverImage?.width,
-          height: post.coverImage?.height
-        }
-      ]
-    }
-  }
-}
+// export async function generateMetadata({ params }) {
+//   const post = await getData(params.slug)
+//   if (!post) return notFound()
+//   return {
+//     title: post.title,
+//     description: post.description || post.seo?.description,
+//     openGraph: {
+//       images: [
+//         {
+//           url: post.coverImage?.url,
+//           width: post.coverImage?.width,
+//           height: post.coverImage?.height
+//         }
+//       ]
+//     }
+//   }
+// }
 
 export default async function Post({ params }) {
   const post = await getData(params.slug)
@@ -67,7 +67,7 @@ export default async function Post({ params }) {
         </div>
       </header>
       <div
-        className="divide-y lg:divide-y-0 divide-gray-200  gap-x-6 pb-16 lg:pb-20"
+        className="divide-y lg:divide-y-0 divide-gray-200  gap-x-6"
         style={{ gridTemplateRows: 'auto 1fr' }}
       >
         <dl className="flex flex-row justify-end pt-6 pb-2 lg:pt-0 lg:border-b lg:border-gray-200">
@@ -119,8 +119,15 @@ export default async function Post({ params }) {
             </dd>
           </div>
         </dl>
-        <div className="text-justify prose pt-10 lg:pb-0 lg:row-span-2">
+        <div className="grid justify-items-center space-y-4 pt-10 lg:pb-0 lg:row-span-2 text-gray-700 font-poppins font-bold indent-6 leading-relaxed text-justify text-base">
           <RichText content={post.content.raw} />
+          <Image
+            className="mt-10 h-63 w-96 rounded-md"
+            src={post.coverImage?.url}
+            width={post.coverImage?.width}
+            height={post.coverImage?.height}
+            alt={post.author?.name}
+          />
         </div>
         <footer className="text-sm font-medium leading-5 divide-y divide-gray-200 lg:col-start-1 lg:row-start-2">
           <div className="pt-8">
