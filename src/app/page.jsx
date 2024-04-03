@@ -17,12 +17,12 @@ async function getPosts() {
 export default async function Home({}) {
   const allPosts = await getPosts()
   return (
-    <div className="divide-y divide-gray-200">
-      <div className="font-poppins pt-6 pb-8 space-y-2 md:space-y-5">
+    <div className="font-poppins divide-y divide-gray-200">
+      <div className="pt-6 pb-8 space-y-2 md:space-y-5">
         <h1 className="text-3xl leading-9 font-poppins font-extrabold text-gray-900 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14 ">
           Dog Trainig Hub
         </h1>
-        <p className="text-lg leading-7 text-gray-500">
+        <p className="text-lg tracking-wide hover:indent-8 text-gray-500">
           Canine Coaching for Every Owner
         </p>
       </div>
@@ -33,7 +33,7 @@ export default async function Home({}) {
             <li key={post.id} className="p-12 hover:bg-orange-200  rounded-md">
               <article className="space-y-2 xl:grid-cols-4 xl:space-y-0 xl:items-baseline">
                 <div className="space-y-5 xl:col-span-3">
-                  <div className="space-y-6">
+                  <div className="tracking-wide space-y-6">
                     <h2 className="text-2xl leading-8 font-bold">
                       <Link
                         href={`/posts/${post.slug}`}
