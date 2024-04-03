@@ -1,48 +1,54 @@
-# hygraph-nextjs-blog-starter
+# INE Blog
+
+Welcome to the repository for the INE Blog, a dynamic blogging platform built with Next.js and powered by Hygraph as our headless CMS for backend management. Our goal is to create an engaging, responsive, and visually appealing platform for users to enjoy a seamless reading and navigation experience.
+
+**📱Check out the live version here: [https://blog-ine.vercel.app/](https://blog-ine.vercel.app/)**
+
+## Key Features and Implementations
+I introduced schemas and models, such as an author schema to showcase their roles in the posts, and a model for incorporating social media links in the footer, aiming to foster engagement and provide a more personalized user experience.
+
+- **Content Model**: Leveraging Hygraph, we've designed a comprehensive content model that supports blog posts with titles, rich text content, publication dates, and optional cover images. This structure is key to delivering a rich user experience.
+
+- **Data Fetching**: We utilize the `graphql-request` library for straightforward yet powerful GraphQL queries to Hygraph, ensuring that our content is always current and dynamically fetched.
+
+- **Dynamic Page Generation**: With Next.js's dynamic routing, our platform efficiently generates individual pages for each blog post. This feature allows each post to have a unique URL, facilitating easier access and sharing.
+
+- **Styling and Layout**: Tailwind CSS is our choice for styling, ensuring that the site is not only responsive but also aesthetically pleasing across different devices. Tailwind's utility-first approach helps us maintain a cohesive look and feel while enabling rapid development.
+
+## Advanced Features In Development
+Currently, I expect to roll this out in about a week, making it much simpler to locate specific content.
+- **Search Functionality** (In Development): A feature that will allow users to easily search and filter posts by title is currently under development. This will greatly simplify finding specific content.
 
 
-> A [Next.js](httsp://nextjs.org) starter for creating a basic blog with [Hygraph](https://hygraph.com)
+## Getting Started
 
-## Quick start
+To get started with this project, you'll need to set up your Hygraph project using our `Blog Template`.
 
-[![Clone project](https://hygraph.com/button)](https://app.hygraph.com/clone/ccfd3e465ed249d987b0dfc3f107d437?name=Basic%20Blog)
+1. **Hygraph Project Setup**:
 
+   Ensure you've created a new Hygraph project. Then, navigate to your project's directory and copy the `.env.sample` file:
 
-1. **Clone and install the project**
+    ```shell
+    cd ine-blog
+    ```
 
-```shell
-npx degit git@github.com:hygraph/hygraph-nextjs-blog-starter.git
-```
+    In your `.env` file, set the `NEXT_PUBLIC_HYGRAPH_ENDPOINT` variable to the following value:
 
-2. **Provide your Hygraph project keys**
+    ```env
+    NEXT_PUBLIC_HYGRAPH_ENDPOINT=https://api-us-east-1-shared-usea1-02.hygraph.com/v2/clu5i3sa2000008jw566rd0v6/master
+    ```
 
-> In order to use this starter, you'll need to have created a new Hygraph project using our `Blog Template`.
+2. **Run the Project Locally**:
 
-Navigate into your new site’s directory and copy the `.env.sample` file.
+   Install the dependencies and start the Next.js development server:
 
-```shell
-cd hygraph-blog
-cp .env.sample .env.local
-```
+    ```shell
+    npm install
+    npm run dev
+    ```
 
-Inside of your newly created `.env` file, provide values for each variable. These variables can be found in the [project settings UI](https://hygraph.com/docs/guides/overview/api-access).
+## Features Overview
 
-```env
-HYGRAPH_ENDPOINT=""
-HYGRAPH_TOKEN=""
-```
+- **App Router**: Efficiently manages page routing within the application.
+- **Tailwind CSS**: Provides utility-first CSS for rapid UI development and ensures responsiveness and aesthetic appeal.
 
-3. **Start building!**
-
-Install the dependencies and start the Next.js dev server:
-
-```shell
-npm install
-npm run dev
-```
-
-## Features
-* App Router
-* Tailwind CSS
-* Built-in 404 page functionality
-* `generateMetadata` for SEO
